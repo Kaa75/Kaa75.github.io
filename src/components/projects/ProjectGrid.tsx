@@ -24,7 +24,7 @@ export function ProjectGrid() {
             className={`text-sm px-4 py-1.5 rounded-full border transition-colors duration-200 ${
               filter === value
                 ? 'border-accent text-accent bg-accent/5'
-                : 'border-border text-[hsl(var(--muted))] hover:border-accent/40 hover:text-[hsl(var(--foreground))]'
+                : 'border-border text-muted hover:border-accent/40 hover:text-foreground'
             }`}
           >
             {label}
@@ -40,7 +40,7 @@ export function ProjectGrid() {
       </div>
 
       {filtered.length === 0 && (
-        <p className="text-center text-[hsl(var(--muted))] py-20">
+        <p className="text-center text-muted py-20">
           No projects in this category yet.
         </p>
       )}

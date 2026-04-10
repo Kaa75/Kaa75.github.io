@@ -35,14 +35,14 @@ export function TechMarquee() {
       aria-hidden="true"
     >
       {/* Fade edges */}
-      <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[hsl(var(--background))] to-transparent z-10 pointer-events-none" />
-      <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-[hsl(var(--background))] to-transparent z-10 pointer-events-none" />
+      <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
+      <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
 
       <div className="flex animate-marquee whitespace-nowrap">
         {items.map((tech, i) => (
           <span
             key={i}
-            className="inline-flex items-center text-sm font-medium text-[hsl(var(--muted))] flex-shrink-0"
+            className="inline-flex items-center text-sm font-medium text-muted flex-shrink-0"
           >
             {tech}
             <Dot />

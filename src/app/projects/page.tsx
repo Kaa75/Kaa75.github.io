@@ -19,7 +19,7 @@ export default function ProjectsPage() {
           <h1 className="text-[clamp(2.4rem,6vw,4.5rem)] tracking-tighter font-semibold leading-[0.95] mb-4">
             Projects
           </h1>
-          <p className="text-base text-[hsl(var(--muted))] leading-relaxed max-w-[55ch]">
+          <p className="text-base text-muted leading-relaxed max-w-[55ch]">
             A selection of personal, freelance, and academic work spanning
             frontend engineering, cybersecurity, and AI.
           </p>

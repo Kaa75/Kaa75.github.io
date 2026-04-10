@@ -20,9 +20,9 @@ const TECH_CHIPS = ['React', 'Next.js', 'TypeScript', 'AWS', 'Three.js', 'GSAP']
 
 // headline words — split so each can mask-reveal individually
 const HEADLINE_PARTS: { text: string; accent: boolean }[] = [
-  { text: 'Engineering', accent: false },
-  { text: 'Digital', accent: true },
-  { text: 'Experiences', accent: true },
+  { text: 'Fast Code.', accent: false },
+  { text: 'Hardened', accent: true },
+  { text: 'Systems.', accent: true },
 ];
 
 export function HeroSection() {
@@ -142,13 +142,13 @@ export function HeroSection() {
             className="w-12 h-px bg-accent mb-7"
           />
 
-          {/* Status badge */}
+          {/* Status badge — specific to location/context, not generic availability */}
           <div
             data-hero="badge"
             className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-accent/30 bg-accent/5 text-xs text-accent font-medium mb-8"
           >
             <span className="w-1.5 h-1.5 rounded-full bg-accent" />
-            Available for new opportunities
+            Beirut, Lebanon · Open to remote
           </div>
 
           {/* Headline — word mask reveal */}
@@ -168,7 +168,9 @@ export function HeroSection() {
           {/* Role cycling line */}
           <p
             data-hero="role"
-            className="text-lg md:text-xl text-[hsl(var(--muted))] font-light mb-6 h-7"
+            aria-live="polite"
+            aria-atomic="true"
+            className="text-lg md:text-xl text-muted font-light mb-6 h-7"
           >
             <span ref={roleRef}>{ROLES[roleIndex]}</span>
           </p>
@@ -176,10 +178,10 @@ export function HeroSection() {
           {/* Subtitle */}
           <p
             data-hero="subtitle"
-            className="text-base text-[hsl(var(--muted))] leading-relaxed max-w-[50ch] mb-10"
+            className="text-base text-muted leading-relaxed max-w-[50ch] mb-10"
           >
-            Building performant, secure, and beautifully crafted web
-            applications — from pixel-perfect UIs to hardened backend systems.
+            Frontend &amp; full-stack with a security background — I build interfaces that ship fast
+            and backends that don&apos;t break. CTF competitor, Three.js tinkerer.
           </p>
 
           {/* CTAs */}
@@ -206,7 +208,7 @@ export function HeroSection() {
               <span
                 key={chip}
                 data-herochip
-                className="px-3 py-1 rounded-full border border-border text-xs text-[hsl(var(--muted))] bg-[hsl(var(--card))]"
+                className="px-3 py-1 rounded-full border border-border text-xs text-muted bg-card"
               >
                 {chip}
               </span>
@@ -216,7 +218,7 @@ export function HeroSection() {
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-[hsl(var(--muted))] no-print pointer-events-none">
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-muted no-print pointer-events-none">
         <span className="text-[0.6rem] tracking-[0.25em] uppercase opacity-60">Scroll</span>
         <div className="w-px h-10 bg-gradient-to-b from-accent/50 to-transparent" />
       </div>

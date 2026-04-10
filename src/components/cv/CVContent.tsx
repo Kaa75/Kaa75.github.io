@@ -40,7 +40,7 @@ export function CVContent() {
       <meta itemProp="email" content="karimabboud05@gmail.com" />
 
       {/* Contact info */}
-      <section data-cv-section aria-labelledby="cv-contact" className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-[hsl(var(--muted))]">
+      <section data-cv-section aria-labelledby="cv-contact" className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted">
         <span>Beirut, Lebanon</span>
         <a href="tel:+96171394791" className="hover:text-accent transition-colors duration-200">+961 71 394 791</a>
         <a href="mailto:karimabboud05@gmail.com" className="hover:text-accent transition-colors duration-200">karimabboud05@gmail.com</a>
@@ -56,13 +56,13 @@ export function CVContent() {
         <div className="space-y-2">
           <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
             <h3 className="font-medium">American University of Beirut</h3>
-            <span className="text-sm font-mono text-[hsl(var(--muted))]">Aug 2022 &ndash; May 2026 (Expected)</span>
+            <span className="text-sm font-mono text-muted">Aug 2022 &ndash; May 2026 (Expected)</span>
           </div>
-          <p className="text-sm text-[hsl(var(--foreground))]">
+          <p className="text-sm text-foreground">
             Bachelor of Computer Science Engineering | Concentration: Cybersecurity & Networking
           </p>
-          <p className="text-sm text-[hsl(var(--muted))] leading-relaxed">
-            <span className="font-medium text-[hsl(var(--foreground))]">Relevant Coursework:</span>{' '}
+          <p className="text-sm text-muted leading-relaxed">
+            <span className="font-medium text-foreground">Relevant Coursework:</span>{' '}
             Ethical Hacking I & II, Cryptography & Network Security, Internet Security Lab, Software Security,
             DevSecOps & Cloud, Machine Learning, Computing Networks & Services, Data Structures & Algorithms.
           </p>
@@ -133,11 +133,11 @@ export function CVContent() {
           Certifications
         </h2>
         <ul className="space-y-2 text-sm">
-          <li className="text-[hsl(var(--muted))]">
-            <span className="text-[hsl(var(--foreground))]">Introduction to Cybersecurity</span> — Cisco
+          <li className="text-muted">
+            <span className="text-foreground">Introduction to Cybersecurity</span> — Cisco
           </li>
-          <li className="text-[hsl(var(--muted))]">
-            <span className="text-[hsl(var(--foreground))]">React — The Complete Guide 2024 (incl. Next.js, Redux)</span> — Udemy
+          <li className="text-muted">
+            <span className="text-foreground">React — The Complete Guide 2024 (incl. Next.js, Redux)</span> — Udemy
           </li>
         </ul>
       </section>
@@ -195,10 +195,10 @@ function ExperienceItem({
     <div className="space-y-2">
       <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
         <h3 className="font-medium">{title}</h3>
-        <span className="text-sm font-mono text-[hsl(var(--muted))] shrink-0">{date}</span>
+        <span className="text-sm font-mono text-muted shrink-0">{date}</span>
       </div>
       {(company || location) && (
-        <p className="text-sm text-[hsl(var(--muted))]">
+        <p className="text-sm text-muted">
           {company && companyUrl ? (
             <a
               href={companyUrl}
@@ -216,7 +216,7 @@ function ExperienceItem({
         </p>
       )}
       <p className="text-xs font-mono text-accent/70">{tech}</p>
-      <ul className="space-y-1.5 text-sm text-[hsl(var(--muted))] leading-relaxed">
+      <ul className="space-y-1.5 text-sm text-muted leading-relaxed">
         {bullets.map((b, i) => (
           <li key={i} className="flex gap-2">
             <span className="text-accent/50 mt-1.5 shrink-0">&#x2022;</span>
@@ -231,12 +231,12 @@ function ExperienceItem({
 function SkillGroup({ title, items }: { title: string; items: string[] }) {
   return (
     <div>
-      <h3 className="font-medium text-[hsl(var(--foreground))] mb-2">{title}</h3>
+      <h3 className="font-medium text-foreground mb-2">{title}</h3>
       <div className="flex flex-wrap gap-2">
         {items.map((item) => (
           <span
             key={item}
-            className="text-xs font-mono px-2.5 py-1 rounded-md border border-border/50 bg-[hsl(var(--surface))] text-[hsl(var(--muted))]"
+            className="text-xs font-mono px-2.5 py-1 rounded-md border border-border/50 bg-surface text-muted"
           >
             {item}
           </span>

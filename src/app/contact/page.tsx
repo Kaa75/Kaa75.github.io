@@ -71,7 +71,7 @@ export default function ContactPage() {
           <h1 className="text-[clamp(2.5rem,6vw,4.5rem)] tracking-tighter font-semibold leading-[0.95] mb-5">
             Say Hello
           </h1>
-          <p className="text-base text-[hsl(var(--muted))] leading-relaxed max-w-[46ch]">
+          <p className="text-base text-muted leading-relaxed max-w-[46ch]">
             Open to new opportunities, freelance work, and interesting conversations.
             Pick your preferred channel below.
           </p>
@@ -85,7 +85,7 @@ export default function ContactPage() {
               href={link.href}
               {...(link.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
               {...(link.download ? { download: true } : {})}
-              className="group flex items-center gap-5 p-5 rounded-2xl border border-border/60 bg-[hsl(var(--card))] hover:border-accent/40 hover:bg-[hsl(var(--card))]/80 transition-all duration-200"
+              className="group flex items-center gap-5 p-5 rounded-2xl border border-border/60 bg-card hover:border-accent/40 hover:bg-card/80 transition-all duration-200"
             >
               {/* Icon */}
               <span className="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-xl bg-accent/10 text-accent ring-1 ring-accent/15 group-hover:bg-accent/15 transition-colors duration-200">
@@ -94,13 +94,13 @@ export default function ContactPage() {
 
               {/* Text */}
               <span className="flex-1 min-w-0">
-                <span className="block text-xs uppercase tracking-widest text-[hsl(var(--muted))] font-medium mb-0.5">
+                <span className="block text-xs uppercase tracking-widest text-muted font-medium mb-0.5">
                   {link.label}
                 </span>
-                <span className="block text-sm font-medium text-[hsl(var(--foreground))] truncate">
+                <span className="block text-sm font-medium text-foreground truncate">
                   {link.value}
                 </span>
-                <span className="block text-xs text-[hsl(var(--muted))] mt-0.5">
+                <span className="block text-xs text-muted mt-0.5">
                   {link.description}
                 </span>
               </span>
@@ -115,7 +115,7 @@ export default function ContactPage() {
                 strokeWidth="1.5"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className="flex-shrink-0 text-[hsl(var(--muted))] -translate-x-1 group-hover:translate-x-0 group-hover:text-accent transition-all duration-200"
+                className="flex-shrink-0 text-muted -translate-x-1 group-hover:translate-x-0 group-hover:text-accent transition-all duration-200"
                 aria-hidden="true"
               >
                 <path d="M5 12h14" />
@@ -126,7 +126,7 @@ export default function ContactPage() {
         </div>
 
         {/* Availability note */}
-        <p className="mt-12 text-xs text-[hsl(var(--muted))] text-center">
+        <p className="mt-12 text-xs text-muted text-center">
           Typically replies within 24 hours
         </p>
       </div>

@@ -5,13 +5,14 @@ export function Footer() {
 
   return (
     <footer className="border-t border-border/50 no-print" role="contentinfo">
-      <div className="section-container py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-[hsl(var(--muted))]">
+      <div className="section-container py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-muted">
         <p>&copy; {year} Karim Abboud. All rights reserved.</p>
         <div className="flex items-center gap-6">
           <Link
             href="https://www.linkedin.com/in/karim-abboud-6bba15248/"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="LinkedIn (opens in new tab)"
             className="hover:text-accent transition-colors duration-200"
           >
             LinkedIn
@@ -20,6 +21,7 @@ export function Footer() {
             href="https://github.com/Kaa75"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="GitHub (opens in new tab)"
             className="hover:text-accent transition-colors duration-200"
           >
             GitHub

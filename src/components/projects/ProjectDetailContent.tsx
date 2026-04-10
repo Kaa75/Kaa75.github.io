@@ -44,7 +44,7 @@ export function ProjectDetailContent({ project }: { project: Project }) {
         {/* Back link */}
         <Link
           href="/projects"
-          className="inline-flex items-center gap-2 text-sm text-[hsl(var(--muted))] hover:text-[hsl(var(--foreground))] transition-colors duration-200 mb-8"
+          className="inline-flex items-center gap-2 text-sm text-muted hover:text-foreground transition-colors duration-200 mb-8"
         >
           <span aria-hidden="true">&larr;</span>
           All Projects
@@ -60,19 +60,19 @@ export function ProjectDetailContent({ project }: { project: Project }) {
         {/* Meta row */}
         <div
           data-detail="meta"
-          className="flex flex-wrap gap-6 text-sm text-[hsl(var(--muted))] mb-10 pb-8 border-b border-border/50"
+          className="flex flex-wrap gap-6 text-sm text-muted mb-10 pb-8 border-b border-border/50"
         >
           <div>
             <span className="block text-xs uppercase tracking-wider mb-1">
               Role
             </span>
-            <span className="text-[hsl(var(--foreground))]">{project.role}</span>
+            <span className="text-foreground">{project.role}</span>
           </div>
           <div>
             <span className="block text-xs uppercase tracking-wider mb-1">
               Category
             </span>
-            <span className="text-[hsl(var(--foreground))] capitalize">
+            <span className="text-foreground capitalize">
               {project.category}
             </span>
           </div>
@@ -80,7 +80,7 @@ export function ProjectDetailContent({ project }: { project: Project }) {
             <span className="block text-xs uppercase tracking-wider mb-1">
               Status
             </span>
-            <span className="text-[hsl(var(--foreground))]">
+            <span className="text-foreground">
               {project.isPublic ? 'Open Source' : 'Private'}
             </span>
           </div>
@@ -93,7 +93,7 @@ export function ProjectDetailContent({ project }: { project: Project }) {
             {project.description.split('\n\n').map((paragraph, i) => (
               <p
                 key={i}
-                className="text-base text-[hsl(var(--muted))] leading-relaxed"
+                className="text-base text-muted leading-relaxed"
               >
                 {paragraph}
               </p>
@@ -107,7 +107,7 @@ export function ProjectDetailContent({ project }: { project: Project }) {
               {project.tech.map((t) => (
                 <span
                   key={t}
-                  className="text-sm font-mono px-3 py-1 rounded-lg border border-border/50 bg-[hsl(var(--surface))] text-[hsl(var(--muted))]"
+                  className="text-sm font-mono px-3 py-1 rounded-lg border border-border/50 bg-surface text-muted"
                 >
                   {t}
                 </span>

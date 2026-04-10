@@ -8,6 +8,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { projects } from '@/data/projects';
 import { ProjectCard } from '@/components/projects/ProjectCard';
 import { useMotion } from '@/components/providers/MotionProvider';
+import { SplitText } from '@/components/animations/SplitText';
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -34,12 +35,11 @@ export function ProjectsPreview() {
         { scaleX: 1, duration: 0.6, ease: 'power2.inOut' }
       )
         .from('[data-preview="label"]', { y: 10, autoAlpha: 0, duration: 0.4 }, '-=0.2')
-        .from('[data-preview="heading"]', { y: 30, autoAlpha: 0, duration: 0.7 }, '-=0.2')
-        // Stagger cards in
+        // SplitText owns the heading reveal — stagger cards after label
         .from(
           '[data-preview="card"]',
           { y: 50, autoAlpha: 0, duration: 0.65, stagger: 0.14 },
-          '-=0.3'
+          '+=0.3'
         );
     },
     { scope: sectionRef, dependencies: [reducedMotion] }
@@ -59,12 +59,26 @@ export function ProjectsPreview() {
             >
               Selected Work
             </p>
-            <h2
-              data-preview="heading"
-              className="text-3xl md:text-5xl tracking-tighter font-semibold"
-            >
-              Projects
-            </h2>
+            {reducedMotion ? (
+              <h2 className="text-3xl md:text-5xl tracking-tighter font-semibold">
+                Projects
+              </h2>
+            ) : (
+              <SplitText
+                text="Projects"
+                tag="h2"
+                className="text-3xl md:text-5xl tracking-tighter font-semibold"
+                splitType="chars"
+                from={{ opacity: 0, y: 60, rotateX: -15 }}
+                to={{ opacity: 1, y: 0, rotateX: 0 }}
+                duration={0.9}
+                delay={40}
+                ease="power4.out"
+                threshold={0.15}
+                rootMargin="-80px"
+                textAlign="left"
+              />
+            )}
           </div>
           <Link
             href="/projects"

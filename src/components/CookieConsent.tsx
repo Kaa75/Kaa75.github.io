@@ -28,9 +28,9 @@ export function CookieConsent() {
     <div
       role="dialog"
       aria-label="Cookie consent"
-      className="fixed bottom-4 left-4 right-4 sm:left-auto sm:right-6 sm:max-w-sm z-50 p-4 rounded-xl border border-border bg-[hsl(var(--surface-elevated))] shadow-2xl"
+      className="fixed bottom-4 left-4 right-4 sm:left-auto sm:right-6 sm:max-w-sm z-50 p-4 rounded-xl border border-border bg-surface-elevated shadow-2xl"
     >
-      <p className="text-sm text-[hsl(var(--muted))] mb-3">
+      <p className="text-sm text-muted mb-3">
         This site uses privacy-friendly analytics (Plausible) to understand
         traffic. No cookies are used for tracking.
       </p>
@@ -43,7 +43,7 @@ export function CookieConsent() {
         </button>
         <button
           onClick={decline}
-          className="flex-1 text-sm px-3 py-1.5 rounded-lg border border-border text-[hsl(var(--muted))] hover:text-[hsl(var(--foreground))] transition-colors duration-200"
+          className="flex-1 text-sm px-3 py-1.5 rounded-lg border border-border text-muted hover:text-foreground transition-colors duration-200"
         >
           Decline
         </button>

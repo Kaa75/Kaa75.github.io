@@ -20,7 +20,7 @@ export default function AboutPage() {
             <h1 className="text-[clamp(2.4rem,6vw,4.5rem)] tracking-tighter font-semibold leading-[0.95] mb-4">
               Karim Abboud
             </h1>
-            <p className="text-base text-[hsl(var(--muted))] leading-relaxed max-w-[55ch]">
+            <p className="text-base text-muted leading-relaxed max-w-[55ch]">
               Frontend Engineer &amp; Cybersecurity enthusiast based in Beirut,
               Lebanon. Building performant, secure web applications.
             </p>

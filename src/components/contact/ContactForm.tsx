@@ -78,7 +78,7 @@ export function ContactForm() {
           autoComplete="name"
           value={form.name}
           onChange={(e) => setForm({ ...form, name: e.target.value })}
-          className="w-full px-4 py-3 rounded-lg border border-border bg-[hsl(var(--surface))] text-[hsl(var(--foreground))] placeholder:text-[hsl(var(--muted))] focus:border-accent focus:outline-none transition-colors duration-200"
+          className="w-full px-4 py-3 rounded-lg border border-border bg-surface text-foreground placeholder:text-muted focus:border-accent focus:outline-none transition-colors duration-200"
           placeholder="Your name"
         />
       </div>
@@ -94,7 +94,7 @@ export function ContactForm() {
           autoComplete="email"
           value={form.email}
           onChange={(e) => setForm({ ...form, email: e.target.value })}
-          className="w-full px-4 py-3 rounded-lg border border-border bg-[hsl(var(--surface))] text-[hsl(var(--foreground))] placeholder:text-[hsl(var(--muted))] focus:border-accent focus:outline-none transition-colors duration-200"
+          className="w-full px-4 py-3 rounded-lg border border-border bg-surface text-foreground placeholder:text-muted focus:border-accent focus:outline-none transition-colors duration-200"
           placeholder="you@example.com"
         />
       </div>
@@ -109,7 +109,7 @@ export function ContactForm() {
           rows={5}
           value={form.message}
           onChange={(e) => setForm({ ...form, message: e.target.value })}
-          className="w-full px-4 py-3 rounded-lg border border-border bg-[hsl(var(--surface))] text-[hsl(var(--foreground))] placeholder:text-[hsl(var(--muted))] focus:border-accent focus:outline-none transition-colors duration-200 resize-y"
+          className="w-full px-4 py-3 rounded-lg border border-border bg-surface text-foreground placeholder:text-muted focus:border-accent focus:outline-none transition-colors duration-200 resize-y"
           placeholder="Tell me about your project or idea..."
         />
       </div>

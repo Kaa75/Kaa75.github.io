@@ -17,20 +17,53 @@ export function Navbar() {
   const { lowPower, setLowPower } = useMotion();
   const [menuOpen, setMenuOpen] = useState(false);
   const navRef = useRef<HTMLElement>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
+  const hamburgerRef = useRef<HTMLButtonElement>(null);
 
   /* Close mobile menu on route change */
   useEffect(() => {
     setMenuOpen(false);
   }, [pathname]);
 
-  /* Trap focus inside mobile menu when open */
+  /* Focus trap + Escape handler inside mobile menu when open */
   useEffect(() => {
     if (!menuOpen) return;
-    const handleEsc = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setMenuOpen(false);
+
+    // Move focus to first focusable item in menu
+    const firstFocusable = menuRef.current?.querySelector<HTMLElement>(
+      'a, button, [tabindex]:not([tabindex="-1"])'
+    );
+    firstFocusable?.focus();
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setMenuOpen(false);
+        hamburgerRef.current?.focus();
+        return;
+      }
+      if (e.key !== 'Tab') return;
+
+      const focusable = Array.from(
+        menuRef.current?.querySelectorAll<HTMLElement>(
+          'a, button, [tabindex]:not([tabindex="-1"])'
+        ) ?? []
+      );
+      if (focusable.length === 0) return;
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
     };
-    document.addEventListener('keydown', handleEsc);
-    return () => document.removeEventListener('keydown', handleEsc);
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
   }, [menuOpen]);
 
   return (
@@ -56,7 +89,7 @@ export function Navbar() {
               className={`text-sm tracking-wide transition-colors duration-200 ${
                 pathname === href
                   ? 'text-accent'
-                  : 'text-[hsl(var(--muted))] hover:text-[hsl(var(--foreground))]'
+                  : 'text-muted hover:text-foreground'
               }`}
             >
               {label}
@@ -65,7 +98,7 @@ export function Navbar() {
           <button
             onClick={() => setLowPower(!lowPower)}
             aria-pressed={lowPower}
-            className="text-xs px-3 py-1.5 rounded-full border border-border text-[hsl(var(--muted))] hover:text-[hsl(var(--foreground))] hover:border-accent/50 transition-colors duration-200"
+            className="text-xs px-3 py-1.5 rounded-full border border-border text-muted hover:text-foreground hover:border-accent/50 transition-colors duration-200"
           >
             {lowPower ? 'Full Motion' : 'Low Power'}
           </button>
@@ -73,9 +106,11 @@ export function Navbar() {
 
         {/* Mobile hamburger */}
         <button
+          ref={hamburgerRef}
           onClick={() => setMenuOpen(!menuOpen)}
           className="md:hidden p-2 -mr-2"
           aria-expanded={menuOpen}
+          aria-controls="mobile-menu"
           aria-label={menuOpen ? 'Close menu' : 'Open menu'}
         >
           <span className="sr-only">{menuOpen ? 'Close' : 'Menu'}</span>
@@ -101,7 +136,7 @@ export function Navbar() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden border-t border-border/50 bg-[hsl(var(--background))]">
+        <div id="mobile-menu" ref={menuRef} role="dialog" aria-modal="true" aria-label="Navigation menu" className="md:hidden border-t border-border/50 bg-background">
           <div className="section-container py-4 flex flex-col gap-4">
             {links.map(({ href, label }) => (
               <Link
@@ -110,7 +145,7 @@ export function Navbar() {
                 className={`text-base transition-colors duration-200 ${
                   pathname === href
                     ? 'text-accent'
-                    : 'text-[hsl(var(--muted))] hover:text-[hsl(var(--foreground))]'
+                    : 'text-muted hover:text-foreground'
                 }`}
               >
                 {label}
@@ -119,7 +154,7 @@ export function Navbar() {
             <button
               onClick={() => setLowPower(!lowPower)}
               aria-pressed={lowPower}
-              className="text-sm text-left text-[hsl(var(--muted))]"
+              className="text-sm text-left text-muted"
             >
               {lowPower ? 'Enable Full Motion' : 'Enable Low Power Mode'}
             </button>

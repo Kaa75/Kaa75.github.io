@@ -29,10 +29,10 @@ export function HostiviteCaseStudy({ caseStudy, demoData }: Props) {
                     if (match) {
                       return (
                         <div key={j} className="flex gap-2">
-                          <span className="font-medium text-[hsl(var(--foreground))] text-sm">
+                          <span className="font-medium text-foreground text-sm">
                             {match[1]}:
                           </span>
-                          <span className="text-sm text-[hsl(var(--muted))]">
+                          <span className="text-sm text-muted">
                             {match[2]}
                           </span>
                         </div>
@@ -42,7 +42,7 @@ export function HostiviteCaseStudy({ caseStudy, demoData }: Props) {
                   return (
                     <p
                       key={j}
-                      className="text-sm text-[hsl(var(--muted))] leading-relaxed"
+                      className="text-sm text-muted leading-relaxed"
                     >
                       {line}
                     </p>
@@ -62,7 +62,7 @@ export function HostiviteCaseStudy({ caseStudy, demoData }: Props) {
               Demo Mode — Anonymized Data
             </h3>
           </div>
-          <pre className="text-xs font-mono text-[hsl(var(--muted))] overflow-x-auto">
+          <pre className="text-xs font-mono text-muted overflow-x-auto">
             {JSON.stringify(demoData, null, 2)}
           </pre>
         </div>

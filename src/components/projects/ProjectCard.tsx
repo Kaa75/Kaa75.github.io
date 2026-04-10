@@ -3,12 +3,8 @@
 import { useRef } from 'react';
 import Link from 'next/link';
 import { gsap } from 'gsap';
-import { useGSAP } from '@gsap/react';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useMotion } from '@/components/providers/MotionProvider';
 import type { Project } from '@/data/projects';
-
-gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 interface ProjectCardProps {
   project: Project;
@@ -19,59 +15,32 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
   const cardRef = useRef<HTMLAnchorElement>(null);
   const { reducedMotion } = useMotion();
 
-  useGSAP(
-    () => {
-      if (reducedMotion || !cardRef.current) return;
-
-      gsap.from(cardRef.current, {
-        y: 60,
-        autoAlpha: 0,
-        duration: 0.7,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: cardRef.current,
-          start: 'top 90%',
-          toggleActions: 'play none none none',
-        },
-        delay: index * 0.08,
-      });
-    },
-    { scope: cardRef, dependencies: [reducedMotion, index] }
-  );
-
   const handleMouseEnter = (e: React.MouseEvent<HTMLAnchorElement>) => {
     if (reducedMotion) return;
-    gsap.to(e.currentTarget, {
-      y: -4,
-      scale: 1.01,
-      duration: 0.3,
-      ease: 'power2.out',
-    });
-    gsap.to(e.currentTarget.querySelector('[data-card="shine"]'), {
-      autoAlpha: 0.06,
-      duration: 0.3,
-    });
+    const el = e.currentTarget;
+    el.style.willChange = 'transform';
+    gsap.to(el, { y: -4, scale: 1.01, duration: 0.3, ease: 'power2.out' });
+    gsap.to(el.querySelector('[data-card="shine"]'), { autoAlpha: 0.06, duration: 0.3 });
   };
 
   const handleMouseLeave = (e: React.MouseEvent<HTMLAnchorElement>) => {
     if (reducedMotion) return;
-    gsap.to(e.currentTarget, {
+    const el = e.currentTarget;
+    gsap.to(el, {
       y: 0,
       scale: 1,
       duration: 0.3,
       ease: 'power2.out',
+      onComplete: () => { el.style.willChange = 'auto'; },
     });
-    gsap.to(e.currentTarget.querySelector('[data-card="shine"]'), {
-      autoAlpha: 0,
-      duration: 0.3,
-    });
+    gsap.to(el.querySelector('[data-card="shine"]'), { autoAlpha: 0, duration: 0.3 });
   };
 
   return (
     <Link
       ref={cardRef}
       href={`/projects/${project.slug}`}
-      className="group relative block rounded-2xl border border-border/50 bg-[hsl(var(--surface))] p-6 transition-colors duration-200 hover:border-accent/30 will-change-transform"
+      className="group relative block rounded-2xl border border-border/50 bg-surface p-6 transition-colors duration-200 hover:border-accent/30"
       style={{ opacity: reducedMotion ? 1 : undefined }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
@@ -92,7 +61,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
           {project.title}
         </h3>
 
-        <p className="text-sm text-[hsl(var(--muted))] leading-relaxed line-clamp-3">
+        <p className="text-sm text-muted leading-relaxed line-clamp-3">
           {project.summary}
         </p>
 
@@ -101,20 +70,20 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
           {project.tech.slice(0, 4).map((t) => (
             <span
               key={t}
-              className="text-xs font-mono text-[hsl(var(--muted))] px-2 py-0.5 rounded border border-border/50"
+              className="text-xs font-mono text-muted px-2 py-0.5 rounded border border-border/50"
             >
               {t}
             </span>
           ))}
           {project.tech.length > 4 && (
-            <span className="text-xs font-mono text-[hsl(var(--muted))]">
+            <span className="text-xs font-mono text-muted">
               +{project.tech.length - 4}
             </span>
           )}
         </div>
 
         {/* Public/Private indicator */}
-        <div className="flex items-center gap-2 text-xs text-[hsl(var(--muted))]">
+        <div className="flex items-center gap-2 text-xs text-muted">
           <span
             className={`w-1.5 h-1.5 rounded-full ${
               project.isPublic ? 'bg-emerald-400' : 'bg-zinc-500'

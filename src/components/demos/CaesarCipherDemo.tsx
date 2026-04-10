@@ -54,12 +54,12 @@ export function CaesarCipherDemo() {
   return (
     <div
       ref={containerRef}
-      className="mt-12 p-6 rounded-2xl border border-border/50 bg-[hsl(var(--surface))]"
+      className="mt-12 p-6 rounded-2xl border border-border/50 bg-surface"
     >
       <h2 className="text-xl font-semibold tracking-tight mb-2">
         Interactive Caesar Cipher
       </h2>
-      <p className="text-sm text-[hsl(var(--muted))] mb-6">
+      <p className="text-sm text-muted mb-6">
         A classical substitution cipher — each letter is shifted by a fixed
         number of positions in the alphabet. Adjust the shift value and see the
         output change in real time.
@@ -78,7 +78,7 @@ export function CaesarCipherDemo() {
               value={plaintext}
               onChange={(e) => setPlaintext(e.target.value)}
               maxLength={100}
-              className="w-full px-4 py-3 rounded-lg border border-border bg-[hsl(var(--background))] text-[hsl(var(--foreground))] font-mono text-sm focus:border-accent focus:outline-none transition-colors duration-200"
+              className="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground font-mono text-sm focus:border-accent focus:outline-none transition-colors duration-200"
               placeholder="Enter text to encrypt"
             />
           </div>
@@ -97,7 +97,7 @@ export function CaesarCipherDemo() {
               onChange={(e) => handleShiftChange(Number(e.target.value))}
               className="w-full accent-[hsl(var(--accent))]"
             />
-            <div className="flex justify-between text-xs font-mono text-[hsl(var(--muted))]">
+            <div className="flex justify-between text-xs font-mono text-muted">
               <span>0</span>
               <span>25</span>
             </div>
@@ -113,7 +113,7 @@ export function CaesarCipherDemo() {
             aria-live="polite"
             role="status"
           >
-            {ciphertext || <span className="text-[hsl(var(--muted))]">...</span>}
+            {ciphertext || <span className="text-muted">...</span>}
           </div>
 
           {/* Alphabet visualization */}
@@ -124,7 +124,7 @@ export function CaesarCipherDemo() {
                   key={i}
                   className="flex flex-col items-center min-w-[1.5rem]"
                 >
-                  <span className="text-[10px] font-mono text-[hsl(var(--muted))]">
+                  <span className="text-[10px] font-mono text-muted">
                     {String.fromCharCode(65 + i)}
                   </span>
                   <span className="text-[10px] text-accent/50">&darr;</span>
@@ -138,7 +138,7 @@ export function CaesarCipherDemo() {
         </div>
       </div>
 
-      <p className="mt-6 text-xs text-[hsl(var(--muted))]">
+      <p className="mt-6 text-xs text-muted">
         This runs entirely in your browser. No data is sent to any server.
         The Caesar cipher is for educational purposes only and provides no
         real cryptographic security.
