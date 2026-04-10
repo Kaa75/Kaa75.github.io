@@ -3,15 +3,15 @@
 @tailwind utilities;
 
 :root {
-  /* Palette — Zinc base + Emerald accent */
-  --background: 0 0% 3%;
+  /* Palette — Deep Navy + Electric Blue accent */
+  --background: 222 14% 4%;
   --foreground: 0 0% 93%;
-  --surface: 0 0% 7%;
-  --surface-elevated: 0 0% 10%;
-  --card: 0 0% 8%;
-  --muted: 0 0% 45%;
-  --border: 0 0% 15%;
-  --accent: 160 84% 39%;
+  --surface: 220 12% 7%;
+  --surface-elevated: 220 10% 10%;
+  --card: 220 12% 8%;
+  --muted: 220 6% 46%;
+  --border: 220 8% 14%;
+  --accent: 213 90% 63%;
   --accent-foreground: 0 0% 100%;
 
   /* Typography */
@@ -42,7 +42,7 @@
 
   body {
     background:
-      radial-gradient(ellipse 80% 50% at 50% -10%, hsl(160 84% 39% / 0.07) 0%, transparent 60%),
+      radial-gradient(ellipse 80% 50% at 50% -10%, hsl(213 90% 63% / 0.06) 0%, transparent 60%),
       hsl(var(--background));
     color: hsl(var(--foreground));
     font-family: var(--font-geist);

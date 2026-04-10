@@ -16,7 +16,7 @@ if (typeof window !== 'undefined') {
 
 function HeroMesh() {
   const meshRef = useRef<THREE.Mesh>(null);
-  const color = useMemo(() => new THREE.Color('#10b981'), []);
+  const color = useMemo(() => new THREE.Color('#3b82f6'), []);
 
   useFrame((state) => {
     if (!meshRef.current) return;
@@ -27,7 +27,7 @@ function HeroMesh() {
 
   return (
     <Float speed={1.2} rotationIntensity={0.15} floatIntensity={0.5}>
-      <mesh ref={meshRef} scale={2.6}>
+      <mesh ref={meshRef} scale={1.5}>
         <icosahedronGeometry args={[1, 4]} />
         <MeshDistortMaterial
           color={color}
@@ -39,7 +39,7 @@ function HeroMesh() {
           opacity={0.92}
         />
         {/* Wire-edge highlight for depth */}
-        <Edges scale={1.01} threshold={15} color="#34d399" />
+        <Edges scale={1.01} threshold={15} color="#93c5fd" />
       </mesh>
     </Float>
   );
@@ -69,16 +69,16 @@ function OrbitRings() {
   return (
     <>
       <mesh ref={ring1}>
-        <torusGeometry args={[3.4, 0.009, 8, 120]} />
-        <meshBasicMaterial color="#10b981" transparent opacity={0.55} />
+        <torusGeometry args={[2.1, 0.009, 8, 120]} />
+        <meshBasicMaterial color="#3b82f6" transparent opacity={0.55} />
       </mesh>
       <mesh ref={ring2} rotation={[Math.PI / 3, 0.4, 0]}>
-        <torusGeometry args={[4.0, 0.006, 8, 120]} />
-        <meshBasicMaterial color="#10b981" transparent opacity={0.32} />
+        <torusGeometry args={[2.6, 0.006, 8, 120]} />
+        <meshBasicMaterial color="#60a5fa" transparent opacity={0.35} />
       </mesh>
       <mesh ref={ring3} rotation={[0.3, 0, Math.PI / 5]}>
-        <torusGeometry args={[4.8, 0.004, 8, 120]} />
-        <meshBasicMaterial color="#059669" transparent opacity={0.2} />
+        <torusGeometry args={[3.2, 0.004, 8, 120]} />
+        <meshBasicMaterial color="#2563eb" transparent opacity={0.22} />
       </mesh>
     </>
   );
@@ -116,7 +116,7 @@ function Particles() {
   return (
     <instancedMesh ref={meshRef} args={[undefined, undefined, count]}>
       <sphereGeometry args={[0.018, 6, 6]} />
-      <meshBasicMaterial color="#6ee7b7" transparent opacity={0.45} />
+      <meshBasicMaterial color="#93c5fd" transparent opacity={0.4} />
     </instancedMesh>
   );
 }
@@ -133,15 +133,15 @@ export function HeroScene() {
       {/* Ambient + directional + colored fill */}
       <ambientLight intensity={0.5} />
       <directionalLight position={[4, 6, 5]} intensity={1.4} />
-      <pointLight position={[2, 1, 3]}  intensity={2.5} color="#10b981" />
-      <pointLight position={[-3, -2, 2]} intensity={1.2} color="#059669" />
-      <pointLight position={[0, 4, -2]} intensity={0.8} color="#34d399" />
+      <pointLight position={[2, 1, 3]}  intensity={2.5} color="#3b82f6" />
+      <pointLight position={[-3, -2, 2]} intensity={1.2} color="#2563eb" />
+      <pointLight position={[0, 4, -2]} intensity={0.8} color="#60a5fa" />
 
       {/* Background starfield */}
       <Stars radius={80} depth={40} count={2500} factor={3} saturation={0} fade speed={0.8} />
 
       {/* Main scene group — offset right on desktop */}
-      <group position={[1.4, -0.1, 0]}>
+      <group position={[1.6, 0, 0]}>
         <HeroMesh />
         <OrbitRings />
       </group>

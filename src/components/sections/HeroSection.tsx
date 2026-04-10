@@ -11,9 +11,9 @@ import { useMotion } from '@/components/providers/MotionProvider';
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 const ROLES = [
-  'Frontend Engineer',
-  'Cybersecurity Enthusiast',
-  'Creative Builder',
+  'Frontend & Fullstack Engineer',
+  'Infrastructure & Cloud',
+  'Security Enthusiast',
 ];
 
 const TECH_CHIPS = ['React', 'Next.js', 'TypeScript', 'AWS', 'Three.js', 'GSAP'];
@@ -128,26 +128,8 @@ export function HeroSection() {
       ref={containerRef}
       className="relative min-h-[100dvh] flex items-center overflow-hidden"
     >
-      {/* Background grid overlay */}
-      <div className="absolute inset-0 bg-grid opacity-20 pointer-events-none" />
-
       {/* 3D canvas — parallax wrapper */}
       <div ref={canvasWrapperRef} className="absolute inset-0 will-change-transform">
-        {/* Glow orbs — right side */}
-        <div
-          className="absolute top-1/4 right-[5%] w-[520px] h-[520px] rounded-full pointer-events-none animate-glow-pulse"
-          style={{
-            background:
-              'radial-gradient(circle, hsl(160 84% 39% / 0.18) 0%, transparent 70%)',
-          }}
-        />
-        <div
-          className="absolute top-1/2 right-[15%] w-[280px] h-[280px] rounded-full pointer-events-none animate-glow-pulse-slow"
-          style={{
-            background:
-              'radial-gradient(circle, hsl(160 84% 39% / 0.09) 0%, transparent 70%)',
-          }}
-        />
         <HeroCanvas />
       </div>
 
@@ -163,16 +145,16 @@ export function HeroSection() {
           {/* Status badge */}
           <div
             data-hero="badge"
-            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-accent/30 bg-accent/5 text-xs text-accent font-medium mb-8 animate-float-badge"
+            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-accent/30 bg-accent/5 text-xs text-accent font-medium mb-8"
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-accent animate-glow-pulse" />
+            <span className="w-1.5 h-1.5 rounded-full bg-accent" />
             Available for new opportunities
           </div>
 
           {/* Headline — word mask reveal */}
           <h1 className="text-[clamp(2.6rem,7vw,5.5rem)] tracking-tighter leading-[0.95] font-semibold mb-4 overflow-hidden">
             {HEADLINE_PARTS.map((part, i) => (
-              <span key={i} className="block overflow-hidden">
+              <span key={i} className="block overflow-hidden pb-[0.15em]">
                 <span
                   data-heroword
                   className={`inline-block${part.accent ? ' text-accent' : ''}`}
@@ -205,7 +187,7 @@ export function HeroSection() {
             <Link
               data-hero="cta"
               href="/about"
-              className="inline-flex items-center px-7 py-3.5 rounded-lg bg-accent text-accent-foreground text-sm font-medium hover:opacity-90 active:scale-[0.98] transition-all duration-200 shadow-[0_0_24px_hsl(160_84%_39%/0.35)]"
+              className="inline-flex items-center px-7 py-3.5 rounded-lg bg-accent text-accent-foreground text-sm font-medium hover:opacity-90 active:scale-[0.98] transition-all duration-200 shadow-[0_0_20px_hsl(var(--accent)/0.3)]"
             >
               View CV
             </Link>
@@ -236,7 +218,7 @@ export function HeroSection() {
       {/* Scroll indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-[hsl(var(--muted))] no-print pointer-events-none">
         <span className="text-[0.6rem] tracking-[0.25em] uppercase opacity-60">Scroll</span>
-        <div className="w-px h-10 bg-gradient-to-b from-accent/50 to-transparent animate-scroll-bounce" />
+        <div className="w-px h-10 bg-gradient-to-b from-accent/50 to-transparent" />
       </div>
     </section>
   );
