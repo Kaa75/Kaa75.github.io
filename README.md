@@ -197,7 +197,7 @@ Before going live, add these files:
 
 1. **`src/fonts/GeistVF.woff2`** — [Download from Vercel](https://github.com/vercel/geist-font/releases)
 2. **`src/fonts/GeistMonoVF.woff2`** — Same source
-3. **`public/karim-abboud-cv.pdf`** — Your CV as PDF
+3. **`public/KarimAbboud_CV.pdf`** — Your CV as PDF
 4. **`public/og-image.png`** — 1200x630 OpenGraph image
 5. **`public/favicon.ico`** — Favicon
 

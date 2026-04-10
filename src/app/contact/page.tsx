@@ -47,8 +47,8 @@ const LINKS = [
   },
   {
     label: 'Resume',
-    value: 'karim-abboud-cv.pdf',
-    href: '/karim-abboud-cv.pdf',
+    value: 'KarimAbboud_CV.pdf',
+    href: '/KarimAbboud_CV.pdf',
     description: 'Download my full CV as PDF',
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">

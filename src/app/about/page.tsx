@@ -26,7 +26,7 @@ export default function AboutPage() {
             </p>
           </div>
           <a
-            href="/karim-abboud-cv.pdf"
+            href="/KarimAbboud_CV.pdf"
             download
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-accent text-accent-foreground text-sm font-medium hover:opacity-90 active:scale-[0.98] transition-all duration-200 shrink-0 no-print"
           >
