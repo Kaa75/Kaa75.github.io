@@ -148,7 +148,7 @@ export function HeroSection() {
             className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-accent/30 bg-accent/5 text-xs text-accent font-medium mb-8"
           >
             <span className="w-1.5 h-1.5 rounded-full bg-accent" />
-            Beirut, Lebanon · Open to remote
+            Beirut, Lebanon · Open to remote & relocate
           </div>
 
           {/* Headline — word mask reveal */}
@@ -180,7 +180,7 @@ export function HeroSection() {
             data-hero="subtitle"
             className="text-base text-muted leading-relaxed max-w-[50ch] mb-10"
           >
-            Frontend &amp; full-stack with a security background — I build interfaces that ship fast
+            Frontend &amp; full-stack with a security background. I build interfaces that ship fast
             and backends that don&apos;t break. CTF competitor, Three.js tinkerer.
           </p>
 

@@ -98,7 +98,7 @@ export function Navbar() {
           <button
             onClick={() => setLowPower(!lowPower)}
             aria-pressed={lowPower}
-            className="text-xs px-3 py-1.5 rounded-full border border-border text-muted hover:text-foreground hover:border-accent/50 transition-colors duration-200"
+            className="text-xs px-3 py-1.5 rounded-full border border-border text-muted hover:text-foreground hover:border-accent/50 active:scale-[0.96] transition-all duration-200"
           >
             {lowPower ? 'Full Motion' : 'Low Power'}
           </button>
@@ -142,7 +142,7 @@ export function Navbar() {
               <Link
                 key={href}
                 href={href}
-                className={`text-base transition-colors duration-200 ${
+                className={`text-base transition-colors duration-200 active:opacity-70 ${
                   pathname === href
                     ? 'text-accent'
                     : 'text-muted hover:text-foreground'
@@ -154,7 +154,7 @@ export function Navbar() {
             <button
               onClick={() => setLowPower(!lowPower)}
               aria-pressed={lowPower}
-              className="text-sm text-left text-muted"
+              className="text-sm text-left text-muted hover:text-foreground active:opacity-70 transition-colors duration-200"
             >
               {lowPower ? 'Enable Full Motion' : 'Enable Low Power Mode'}
             </button>

@@ -89,9 +89,9 @@ export function ProjectsPreview() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-          {featured.map((project, i) => (
+          {featured.map((project) => (
             <div key={project.slug} data-preview="card">
-              <ProjectCard project={project} index={i} />
+              <ProjectCard project={project} />
             </div>
           ))}
         </div>

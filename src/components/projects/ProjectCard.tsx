@@ -8,10 +8,9 @@ import type { Project } from '@/data/projects';
 
 interface ProjectCardProps {
   project: Project;
-  index: number;
 }
 
-export function ProjectCard({ project, index }: ProjectCardProps) {
+export function ProjectCard({ project }: ProjectCardProps) {
   const cardRef = useRef<HTMLAnchorElement>(null);
   const { reducedMotion } = useMotion();
 
@@ -41,7 +40,6 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
       ref={cardRef}
       href={`/projects/${project.slug}`}
       className="group relative block rounded-2xl border border-border/50 bg-surface p-6 transition-colors duration-200 hover:border-accent/30"
-      style={{ opacity: reducedMotion ? 1 : undefined }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
