@@ -77,7 +77,7 @@ export function Navbar() {
           href="/"
           className="text-lg font-semibold tracking-tight hover:text-accent transition-colors duration-200"
         >
-          K.A
+          Karim Abboud
         </Link>
 
         {/* Desktop links */}
