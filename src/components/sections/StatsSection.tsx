@@ -8,12 +8,16 @@ import { useMotion } from '@/components/providers/MotionProvider';
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
+// Every figure here is backed by the CV: CTFs and years (own record),
+// Lighthouse (rscsummit.org), load time (Anghami Next.js migration).
 const STATS = [
-  { value: 15, suffix: '+', label: 'CTF Competitions' },
-  { value: 6,  suffix: '',  label: 'Production Apps' },
-  { value: 3,  suffix: '+', label: 'Years Building' },
-  { value: 4,  suffix: '',  label: 'Languages & Stacks' },
+  { value: 15, prefix: '', suffix: '+', label: 'CTF Competitions' },
+  { value: 3, prefix: '', suffix: '+', label: 'Years Building' },
+  { value: 99, prefix: '', suffix: '', label: 'Lighthouse · RSC Summit' },
+  { value: 35, prefix: '−', suffix: '%', label: 'Load Time · Anghami' },
 ];
+
+const format = (i: number, n: number) => `${STATS[i].prefix}${n}${STATS[i].suffix}`;
 
 export function StatsSection() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -21,13 +25,15 @@ export function StatsSection() {
 
   useGSAP(
     () => {
-      if (reducedMotion) {
-        gsap.set('[data-stat-num]', { autoAlpha: 1 });
-        document.querySelectorAll<HTMLElement>('[data-stat-num]').forEach((el, i) => {
-          el.textContent = `${STATS[i].value}${STATS[i].suffix}`;
-        });
-        return;
-      }
+      // Markup is server-rendered with the final values, so no-JS, crawlers and
+      // reduced-motion users all see the real numbers. Only animate from 0 when
+      // motion is allowed.
+      if (reducedMotion) return;
+
+      const nums = gsap.utils.toArray<HTMLElement>('[data-stat-num]');
+      nums.forEach((el, i) => {
+        el.textContent = format(i, 0);
+      });
 
       // Single timeline + single ScrollTrigger owns both the card fade and counter-ups
       const tl = gsap.timeline({
@@ -37,14 +43,14 @@ export function StatsSection() {
           toggleActions: 'play none none none',
           onEnter: () => {
             // Counter-up animations start with the timeline
-            document.querySelectorAll<HTMLElement>('[data-stat-num]').forEach((el, i) => {
+            nums.forEach((el, i) => {
               const obj = { val: 0 };
               gsap.to(obj, {
                 val: STATS[i].value,
                 duration: 1.6,
                 ease: 'power2.out',
                 onUpdate: () => {
-                  el.textContent = `${Math.round(obj.val)}${STATS[i].suffix}`;
+                  el.textContent = format(i, Math.round(obj.val));
                 },
               });
             });
@@ -75,12 +81,10 @@ export function StatsSection() {
             >
               <span
                 data-stat-num
-                aria-hidden="true"
                 className="text-[clamp(2.5rem,5vw,3.5rem)] font-semibold tracking-tighter text-accent leading-none"
               >
-                0{stat.suffix}
+                {format(i, stat.value)}
               </span>
-              <span className="sr-only">{stat.value}{stat.suffix}</span>
               <span className="mt-2 text-xs text-muted tracking-widest uppercase font-medium">
                 {stat.label}
               </span>
