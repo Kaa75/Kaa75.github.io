@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useEffect, useState } from 'react';
+import { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -10,13 +10,7 @@ import { useMotion } from '@/components/providers/MotionProvider';
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
-const ROLES = [
-  'Frontend & Fullstack Engineer',
-  'Infrastructure & Cloud',
-  'Security Enthusiast',
-];
-
-const TECH_CHIPS = ['React', 'Next.js', 'TypeScript', 'AWS', 'Three.js', 'GSAP'];
+const TECH_CHIPS = ['React', 'Next.js', 'NestJS', 'TypeScript', 'AWS', 'PostgreSQL'];
 
 // headline words — split so each can mask-reveal individually
 const HEADLINE_PARTS: { text: string; accent: boolean }[] = [
@@ -28,32 +22,8 @@ const HEADLINE_PARTS: { text: string; accent: boolean }[] = [
 export function HeroSection() {
   const containerRef = useRef<HTMLElement>(null);
   const canvasWrapperRef = useRef<HTMLDivElement>(null);
-  const roleRef = useRef<HTMLSpanElement>(null);
   const lineRef = useRef<HTMLDivElement>(null);
   const { reducedMotion } = useMotion();
-  const [roleIndex, setRoleIndex] = useState(0);
-
-  // Role cycling with GSAP fade
-  useEffect(() => {
-    if (reducedMotion) return;
-    const id = setInterval(() => {
-      if (!roleRef.current) return;
-      gsap.to(roleRef.current, {
-        autoAlpha: 0,
-        y: -10,
-        duration: 0.3,
-        onComplete: () => {
-          setRoleIndex((prev) => (prev + 1) % ROLES.length);
-          gsap.fromTo(
-            roleRef.current,
-            { autoAlpha: 0, y: 12 },
-            { autoAlpha: 1, y: 0, duration: 0.35, ease: 'power2.out' }
-          );
-        },
-      });
-    }, 3500);
-    return () => clearInterval(id);
-  }, [reducedMotion]);
 
   // Mouse parallax on canvas wrapper
   useEffect(() => {
@@ -165,23 +135,22 @@ export function HeroSection() {
             ))}
           </h1>
 
-          {/* Role cycling line */}
+          {/* Title + one-line summary */}
           <p
             data-hero="role"
-            aria-live="polite"
-            aria-atomic="true"
-            className="text-lg md:text-xl text-muted font-light mb-6 h-7"
+            className="text-lg md:text-xl text-foreground font-medium mb-3"
           >
-            <span ref={roleRef}>{ROLES[roleIndex]}</span>
+            Full Stack &amp; Cloud Engineer
           </p>
-
-          {/* Subtitle */}
           <p
             data-hero="subtitle"
-            className="text-base text-muted leading-relaxed max-w-[50ch] mb-10"
+            className="text-base text-muted leading-relaxed max-w-[52ch] mb-3"
           >
-            Frontend &amp; full-stack with a security background. I build interfaces that ship fast
-            and backends that don&apos;t break. CTF competitor, Three.js tinkerer.
+            I build and ship web products with React, Next.js, NestJS and AWS, and add AI
+            integrations where they earn their place.
+          </p>
+          <p className="text-sm text-muted mb-10">
+            Languages: Arabic (native), English (fluent).
           </p>
 
           {/* CTAs */}
@@ -193,6 +162,14 @@ export function HeroSection() {
             >
               View CV
             </Link>
+            <a
+              data-hero="cta"
+              href="/KarimAbboud_CV.pdf"
+              download
+              className="inline-flex items-center px-7 py-3.5 rounded-lg border border-border text-sm font-medium hover:border-accent/50 hover:text-accent active:scale-[0.98] transition-all duration-200"
+            >
+              Download CV
+            </a>
             <Link
               data-hero="cta"
               href="/projects"

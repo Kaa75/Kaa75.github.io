@@ -4,6 +4,7 @@ import { useRef } from 'react';
 import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { experience } from '@/data/experience';
 import { useMotion } from '@/components/providers/MotionProvider';
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
@@ -36,7 +37,7 @@ export function CVContent() {
   return (
     <article ref={containerRef} className="space-y-12" itemScope itemType="https://schema.org/Person">
       <meta itemProp="name" content="Karim Abboud" />
-      <meta itemProp="jobTitle" content="Software Engineer" />
+      <meta itemProp="jobTitle" content="Full Stack & Cloud Engineer" />
       <meta itemProp="email" content="karimabboud05@gmail.com" />
 
       {/* Contact info */}
@@ -56,7 +57,7 @@ export function CVContent() {
         <div className="space-y-2">
           <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
             <h3 className="font-medium">American University of Beirut</h3>
-            <span className="text-sm font-mono text-muted">Aug 2022 &ndash; May 2026 (Expected)</span>
+            <span className="text-sm font-mono text-muted">Aug 2022 &ndash; May 2026</span>
           </div>
           <p className="text-sm text-foreground">
             Bachelor of Computer Science Engineering | Concentration: Cybersecurity & Networking
@@ -75,55 +76,18 @@ export function CVContent() {
           Experience
         </h2>
         <div className="space-y-8">
-          <ExperienceItem
-            title="Frontend Engineer"
-            company="Anghami"
-            location="Beirut, Lebanon"
-            date="Jun 2025 – Sep 2025"
-            tech="React, Next.js, JavaScript, TypeScript"
-            bullets={[
-              'Developed UI for Chromecast web app, integrating Google Cast SDK to replace native interface with a fully custom web-based experience.',
-              'Migrated Angular landing pages to Next.js, improving load time by 35% and reducing bundle size by 40%.',
-              'Optimized React state management and component architecture, improving rendering efficiency and scalability across multiple platforms.',
-            ]}
-          />
-          <ExperienceItem
-            title="Freelance Software Engineer — RSC Summit 2025"
-            company="rscsummit.org"
-            companyUrl="https://www.rscsummit.org/"
-            location=""
-            date="Aug 2025 – Oct 2025"
-            tech="React, Next.js, TypeScript, AWS, Serverless"
-            bullets={[
-              'Built and deployed the official RSC Summit 2025 website (rscsummit.org) using React with serverless backend architecture.',
-              'Implemented AWS serverless APIs using Lambda, API Gateway, and S3 for dynamic content and form handling.',
-              'Achieved 99% Lighthouse performance score through static site generation, caching, and CDN optimization.',
-            ]}
-          />
-          <ExperienceItem
-            title="Freelance Software Engineer — OFOQ"
-            company="ofoqinternational.com"
-            companyUrl="https://www.ofoqinternational.com/"
-            location=""
-            date="Aug 2025 – Jan 2026"
-            tech="React, TypeScript, MUI, Vite, AWS, Serverless, Bedrock"
-            bullets={[
-              'Built and deployed the complete full-stack OFOQ website (ofoqinternational.com).',
-              'Designed serverless backend using AWS Lambda, API Gateway, and S3 for form submissions and custom CMS.',
-              'Integrated AWS Bedrock powered AI workflows for automated booth generation.',
-              'Improved cross-device responsiveness and reduced page load time using optimized asset delivery and caching.',
-            ]}
-          />
-          <ExperienceItem
-            title="Tutor & Teaching Assistant"
-            company="American University of Beirut"
-            location=""
-            date="Aug 2023 – Aug 2025"
-            tech="Python, Data Structures & Algorithms, Ethical Hacking I"
-            bullets={[
-              'Delivered guidance in Python, Data Structures, and cybersecurity concepts through weekly labs and one-on-one mentoring sessions for 30+ students.',
-            ]}
-          />
+          {experience.map((job) => (
+            <ExperienceItem
+              key={`${job.company}-${job.date}`}
+              title={job.title}
+              company={job.company}
+              companyUrl={job.companyUrl}
+              location={job.location ?? ''}
+              date={job.date}
+              tech={job.tech}
+              bullets={job.bullets}
+            />
+          ))}
         </div>
       </section>
 
@@ -133,6 +97,10 @@ export function CVContent() {
           Certifications
         </h2>
         <ul className="space-y-2 text-sm">
+          {/* TODO(karim): add the level (e.g. Associate) and year of the AWS certification. */}
+          <li className="text-muted">
+            <span className="text-foreground">AWS Certified Solutions Architect</span> — Amazon Web Services
+          </li>
           <li className="text-muted">
             <span className="text-foreground">Introduction to Cybersecurity</span> — Cisco
           </li>
@@ -153,12 +121,16 @@ export function CVContent() {
             items={['Python', 'JavaScript/TypeScript', 'C/C++', 'Java', 'C#', 'Bash', 'PowerShell']}
           />
           <SkillGroup
-            title="Frontend/Backend"
-            items={['React', 'Next.js', 'Node.js', 'Django', 'Angular', 'MUI', 'Vite']}
+            title="Frameworks"
+            items={['React', 'Next.js', 'Redux Toolkit', 'NestJS', 'Node.js', 'Django', 'Angular', 'MUI', 'Vite']}
+          />
+          <SkillGroup
+            title="Data"
+            items={['PostgreSQL', 'DynamoDB']}
           />
           <SkillGroup
             title="Cloud & DevOps"
-            items={['AWS (Lambda, API Gateway, S3, Bedrock, DynamoDB, CloudFront)', 'Docker', 'Serverless', 'Git']}
+            items={['AWS (Lambda, API Gateway, S3, Bedrock, DynamoDB, CloudFront)', 'Linux', 'Docker', 'CI/CD (GitHub Actions)', 'Serverless', 'Git']}
           />
           <SkillGroup
             title="Security"

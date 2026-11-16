@@ -4,7 +4,7 @@ import { ProjectGrid } from '@/components/projects/ProjectGrid';
 export const metadata: Metadata = {
   title: 'Projects',
   description:
-    'A curated collection of web, freelance, cybersecurity, and AI projects by Karim Abboud.',
+    'Full-stack, AWS serverless and AI projects by Karim Abboud: OFOQ, RSC Summit 2025, Hostivite and more.',
 };
 
 export default function ProjectsPage() {
@@ -20,8 +20,8 @@ export default function ProjectsPage() {
             Projects
           </h1>
           <p className="text-base text-muted leading-relaxed max-w-[55ch]">
-            A selection of personal, freelance, and academic work spanning
-            frontend engineering, cybersecurity, and AI.
+            Freelance, personal and academic work across full-stack web, AWS
+            serverless and AI. Live sites and repos are linked on each card.
           </p>
         </div>
         <ProjectGrid />

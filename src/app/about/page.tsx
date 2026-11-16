@@ -4,7 +4,7 @@ import { CVContent } from '@/components/cv/CVContent';
 export const metadata: Metadata = {
   title: 'About',
   description:
-    'CV and background of Karim Abboud — Frontend Engineer, Cybersecurity enthusiast, based in Beirut, Lebanon.',
+    'CV of Karim Abboud: Full Stack & Cloud Engineer. DevOps at Murex, frontend at Anghami, freelance AWS-serverless builds. Arabic (native), English (fluent).',
 };
 
 export default function AboutPage() {
@@ -21,8 +21,9 @@ export default function AboutPage() {
               Karim Abboud
             </h1>
             <p className="text-base text-muted leading-relaxed max-w-[55ch]">
-              Frontend Engineer &amp; Cybersecurity enthusiast based in Beirut,
-              Lebanon. Building performant, secure web applications.
+              Full Stack &amp; Cloud Engineer in Beirut, Lebanon. React, Next.js,
+              NestJS, AWS and AI integrations, with a cybersecurity background.
+              Arabic (native), English (fluent).
             </p>
           </div>
           <a
@@ -46,7 +47,7 @@ export default function AboutPage() {
               <polyline points="7 10 12 15 17 10" />
               <line x1="12" y1="15" x2="12" y2="3" />
             </svg>
-            Download PDF
+            Download CV
           </a>
         </div>
         <CVContent />

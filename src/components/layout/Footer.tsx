@@ -26,6 +26,13 @@ export function Footer() {
           >
             GitHub
           </Link>
+          <a
+            href="/KarimAbboud_CV.pdf"
+            download
+            className="hover:text-accent transition-colors duration-200"
+          >
+            Download CV
+          </a>
           <Link
             href="mailto:karimabboud05@gmail.com"
             className="hover:text-accent transition-colors duration-200"

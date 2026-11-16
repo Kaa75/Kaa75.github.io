@@ -10,25 +10,25 @@ import { CookieConsent } from '@/components/CookieConsent';
 
 export const metadata: Metadata = {
   title: {
-    default: 'Karim Abboud — Software Engineer',
+    default: 'Karim Abboud — Full Stack & Cloud Engineer',
     template: '%s | Karim Abboud',
   },
   description:
-    'Portfolio of Karim Abboud — Frontend Engineer, Cybersecurity enthusiast, and Full-Stack Developer based in Beirut, Lebanon.',
+    'Karim Abboud is a Full Stack & Cloud Engineer in Beirut building with React, Next.js, NestJS, AWS and AI integrations. Arabic (native), English (fluent).',
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://karimabboud.dev'),
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    title: 'Karim Abboud — Software Engineer',
+    title: 'Karim Abboud — Full Stack & Cloud Engineer',
     description:
-      'Frontend Engineer, Cybersecurity enthusiast, and Full-Stack Developer.',
+      'Full Stack & Cloud Engineer: React, Next.js, NestJS, AWS and AI integrations.',
     siteName: 'Karim Abboud',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Karim Abboud — Software Engineer',
+    title: 'Karim Abboud — Full Stack & Cloud Engineer',
     description:
-      'Frontend Engineer, Cybersecurity enthusiast, and Full-Stack Developer.',
+      'Full Stack & Cloud Engineer: React, Next.js, NestJS, AWS and AI integrations.',
   },
   robots: { index: true, follow: true },
 };
