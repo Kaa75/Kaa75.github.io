@@ -61,27 +61,26 @@ I built the site with React, Next.js and TypeScript, and implemented the AWS ser
     title: 'Hostivite',
     summary:
       'Private event-planning and guest-management app with RSVP tracking, on a serverless AWS backend.',
-    description: `Hostivite is a private freelance product for event planners: create events, manage guest lists, track RSVPs and publish event details from one place.
+    description: `Hostivite is a private freelance event-management app (Mar–Apr 2026): RSVP tracking, guest management and dynamic event templates, with a web app and a React Native app.
 
-It is a React Native client on a Python backend running on AWS serverless, with DynamoDB for storage.
+I built it end to end: a serverless Python backend on AWS with DynamoDB (including a guest-uploaded photo and video gallery) and role-based dashboards that show admins, tenants and users different statistics.
 
 This is a private project, so there is no public repo. The case study below is anonymized.`,
     tech: ['React Native', 'Python', 'AWS Serverless', 'DynamoDB'],
     role: 'Freelance Full-Stack Engineer (Solo)',
     category: 'freelance',
     isPublic: false,
-    // TODO(karim): confirm the Problem / Role / Architecture text below, add
-    // anonymized screenshots to `screenshots`, and supply one verified outcome.
-    // The old 500+ RSVPs / 99.9% uptime / 2 days to 30 minutes figures were
-    // removed because they were not verified.
+    // TODO(karim): add anonymized screenshots to `screenshots`, the real problem
+    // statement and one verified outcome. The old 500+ RSVPs / 99.9% uptime /
+    // 2 days to 30 minutes figures were removed because they were not verified.
     caseStudy: `## Problem
-Event planners managed guest lists and RSVPs across spreadsheets and chat threads, with no single place to see who was coming.
+Hosts needed one place to plan events, manage guests and collect RSVPs and photos, with different views for admins, tenants and guests.
 
 ## My role
-Sole engineer, from design to deployment: client app, backend APIs and AWS infrastructure.
+Sole engineer, from design to deployment: web and React Native apps, Python backend and AWS infrastructure.
 
 ## Architecture
-React Native client calling Python serverless functions on AWS. DynamoDB stores events, guests and RSVPs. Event details are published for guests to view and respond to.`,
+React Native and web clients call Python serverless functions on AWS. DynamoDB stores events, guests, RSVPs and gallery metadata for guest-uploaded photos and videos. Role-based dashboards give admins, tenants and users scoped statistics.`,
     screenshots: [],
   },
   {
@@ -96,9 +95,8 @@ I built the multi-step agent workflow with LangGraph (data interpretation, stati
     tech: ['LangGraph', 'AWS Bedrock', 'React', 'TypeScript', 'Python'],
     role: 'Full-Stack Developer & ML Engineer',
     category: 'ai',
-    // TODO(karim): github.com/Kaa75/clinical-trials-agent returns 404. Your private
-    // FYP-PyTrail repo may be this project. Add the real repo URL (and set isPublic: true) or leave private.
-    isPublic: false,
+    isPublic: true,
+    repoUrl: 'https://github.com/mmb84-aub/Q-Trial',
   },
   {
     slug: 'cryptography-site',

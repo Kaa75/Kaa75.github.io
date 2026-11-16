@@ -60,7 +60,7 @@ export function CVContent() {
             <span className="text-sm font-mono text-muted">Aug 2022 &ndash; May 2026</span>
           </div>
           <p className="text-sm text-foreground">
-            Bachelor of Computer Science Engineering | Concentration: Cybersecurity & Networking
+            Bachelor of Computer Science Engineering | Concentration: Cybersecurity & Networking | Dean&apos;s Honors List 2024&ndash;2025
           </p>
           <p className="text-sm text-muted leading-relaxed">
             <span className="font-medium text-foreground">Relevant Coursework:</span>{' '}
@@ -91,15 +91,33 @@ export function CVContent() {
         </div>
       </section>
 
+      {/* Competitions */}
+      <section data-cv-section aria-labelledby="cv-ctf">
+        <h2 id="cv-ctf" className="text-xl font-semibold tracking-tight mb-6 pb-2 border-b border-border/50">
+          CTF Competitions
+        </h2>
+        <ul className="space-y-1.5 text-sm text-muted leading-relaxed list-disc pl-4 marker:text-accent/50">
+          <li>Competed in over 15 international CTFs (Jan 2024 &ndash; present): web exploitation, cryptography, reverse engineering and forensics.</li>
+          <li>Top 10% globally in picoCTF 2024 (1389 of 14,000 participants).</li>
+        </ul>
+      </section>
+
       {/* Certifications */}
       <section data-cv-section aria-labelledby="cv-certs">
         <h2 id="cv-certs" className="text-xl font-semibold tracking-tight mb-6 pb-2 border-b border-border/50">
           Certifications
         </h2>
         <ul className="space-y-2 text-sm">
-          {/* TODO(karim): add the level (e.g. Associate) and year of the AWS certification. */}
           <li className="text-muted">
-            <span className="text-foreground">AWS Certified Solutions Architect</span> — Amazon Web Services
+            <a
+              href="https://www.credly.com/badges/b3a2f9b7-d333-4211-bbcc-2b8630f191e6"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-foreground hover:text-accent underline-offset-2 hover:underline"
+            >
+              AWS Certified Solutions Architect &ndash; Associate
+            </a>{' '}
+            &mdash; Amazon Web Services
           </li>
           <li className="text-muted">
             <span className="text-foreground">Introduction to Cybersecurity</span> — Cisco
