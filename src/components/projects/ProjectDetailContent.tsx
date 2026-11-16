@@ -124,7 +124,7 @@ export function ProjectDetailContent({ project }: { project: Project }) {
                 rel="noopener noreferrer"
                 className="inline-flex items-center px-5 py-2.5 rounded-lg border border-border text-sm font-medium hover:border-accent/50 hover:text-accent transition-colors duration-200"
               >
-                Frontend Repo
+                {project.backendRepoUrl ? 'Frontend Repo' : 'GitHub'}
               </a>
             )}
             {project.backendRepoUrl && (
@@ -149,10 +149,11 @@ export function ProjectDetailContent({ project }: { project: Project }) {
             )}
           </div>
 
-          {/* Hostivite case study */}
-          {project.slug === 'hostivite' && (
+          {/* Case study for private projects */}
+          {project.caseStudy && (
             <HostiviteCaseStudy
-              caseStudy={project.caseStudy || ''}
+              caseStudy={project.caseStudy}
+              screenshots={project.screenshots}
               demoData={isDemoMode ? project.demoData : undefined}
             />
           )}

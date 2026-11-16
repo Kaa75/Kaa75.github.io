@@ -1,9 +1,10 @@
 interface Props {
   caseStudy: string;
+  screenshots?: { src: string; alt: string }[];
   demoData?: Record<string, unknown>;
 }
 
-export function HostiviteCaseStudy({ caseStudy, demoData }: Props) {
+export function HostiviteCaseStudy({ caseStudy, screenshots, demoData }: Props) {
   const sections = caseStudy.split(/^## /m).filter(Boolean);
 
   return (
@@ -52,6 +53,21 @@ export function HostiviteCaseStudy({ caseStudy, demoData }: Props) {
           );
         })}
       </div>
+
+      {screenshots && screenshots.length > 0 && (
+        <div className="mt-10 grid gap-4 sm:grid-cols-2">
+          {screenshots.map((shot) => (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              key={shot.src}
+              src={shot.src}
+              alt={shot.alt}
+              loading="lazy"
+              className="w-full rounded-xl border border-border/50"
+            />
+          ))}
+        </div>
+      )}
 
       {/* Demo data — only shown in admin/demo mode */}
       {demoData && (
