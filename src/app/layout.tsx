@@ -15,9 +15,11 @@ export const metadata: Metadata = {
   },
   description:
     'Karim Abboud is a Full Stack & Cloud Engineer in Beirut building with React, Next.js, NestJS, AWS and AI integrations. Arabic (native), English (fluent).',
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://karimabboud.dev'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://kaa75.github.io'),
+  alternates: { canonical: '/' },
   openGraph: {
     type: 'website',
+    url: '/',
     locale: 'en_US',
     title: 'Karim Abboud — Full Stack & Cloud Engineer',
     description:

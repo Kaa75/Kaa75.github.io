@@ -96,8 +96,9 @@ I built the multi-step agent workflow with LangGraph (data interpretation, stati
     tech: ['LangGraph', 'AWS Bedrock', 'React', 'TypeScript', 'Python'],
     role: 'Full-Stack Developer & ML Engineer',
     category: 'ai',
-    isPublic: true,
-    repoUrl: 'https://github.com/Kaa75/clinical-trials-agent',
+    // TODO(karim): github.com/Kaa75/clinical-trials-agent returns 404. Your private
+    // FYP-PyTrail repo may be this project. Add the real repo URL (and set isPublic: true) or leave private.
+    isPublic: false,
   },
   {
     slug: 'cryptography-site',
@@ -134,8 +135,8 @@ I led the React front end and implemented the cipher algorithms. They run in an 
     tech: ['Python', 'Sockets', 'Flask', 'Threading'],
     role: 'Developer',
     category: 'systems',
-    isPublic: true,
-    repoUrl: 'https://github.com/Kaa75/proxyguard',
+    // TODO(karim): github.com/Kaa75/proxyguard returns 404. Add the real repo URL (and set isPublic: true) or leave private.
+    isPublic: false,
   },
   {
     slug: 'minigolf-3d-ai',
